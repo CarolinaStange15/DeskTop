@@ -7,6 +7,6 @@
    <children>
       <Button layoutX="40.0" layoutY="212.0" mnemonicParsing="false" onAction="#sair" prefHeight="25.0" prefWidth="65.0" text="Sair" />
       <Button layoutX="87.0" layoutY="71.0" mnemonicParsing="false" onAction="#abrirMenuTesteApiBanco" text="Teste de API e banco" />
-      <Button layoutX="66.0" layoutY="119.0" mnemonicParsing="false" text="Configuração Administrador" />
+      <Button layoutX="66.0" layoutY="119.0" mnemonicParsing="false" text="Configuração Administrador" onAction="#abrirConfiguracaoAdmin" />
    </children>
 </AnchorPane>

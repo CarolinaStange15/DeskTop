@@ -21,4 +21,14 @@ public class MenuController {
         stage.setScene(scene);
 
     }
+    public void abrirConfiguracaoAdmin(ActionEvent event) throws Exception{
+        System.out.println(" Abrindo de configuração de admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/pets/configuracaoadmin-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+    }
+
+
 }
