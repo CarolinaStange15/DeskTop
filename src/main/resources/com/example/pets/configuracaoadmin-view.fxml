@@ -3,12 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pets.controller.ConfiguracaoAdminController">
    <children>
-      <TextField layoutX="80.0" layoutY="77.0" />
-      <TextField layoutX="80.0" layoutY="119.0" />
-      <TextField layoutX="80.0" layoutY="161.0" />
-      <TextField layoutX="80.0" layoutY="200.0" />
+      <TextField fx:id="txtNome" layoutX="80.0" layoutY="77.0" />
+      <TextField fx:id="txtEmail" layoutX="80.0" layoutY="119.0" />
+      <TextField fx:id="txtSenha" layoutX="80.0" layoutY="161.0" />
+      <TextField fx:id="txtCpf" layoutX="80.0" layoutY="200.0" />
+      <Label layoutX="80.0" layoutY="60.0" text="Nome" />
+      <Label layoutX="83.0" layoutY="102.0" text="Email" />
+      <Label layoutX="84.0" layoutY="144.0" text="Senha" />
+      <Label layoutX="83.0" layoutY="186.0" text="CPF" />
+      <Button layoutX="131.0" layoutY="282.0" mnemonicParsing="false" text="Voltar" />
+      <Button layoutX="122.0" layoutY="247.0" mnemonicParsing="false" text="Enviar :)" onAction="#cadastrarAdmin"/>
    </children>
 </AnchorPane>
