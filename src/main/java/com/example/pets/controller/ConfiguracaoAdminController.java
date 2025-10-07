@@ -1,5 +1,11 @@
 package com.example.pets.controller;
 
+import com.example.pets.model.DAO.EnderecoDAO;
+import com.example.pets.model.DAO.UsuarioDAO;
+import com.example.pets.model.Endereco;
+import com.example.pets.model.Usuario;
+import com.example.pets.utils.JPAUtils;
+import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -27,34 +33,32 @@ public class ConfiguracaoAdminController {
 
     public void cadastrarAdmin(ActionEvent event) {
         try {
-            var urlEndereco = "http://localhost:8080/usuarios";
-            URL url = new URL(urlEndereco);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            EntityManager entityManager = JPAUtils.getEntityManager();
+            UsuarioDAO usuarioDAO = new UsuarioDAO(entityManager);
 
-            conn.setRequestMethod("POST");
+            Usuario usuarioBanco = new Usuario();
+            usuarioBanco.setNome(txtNome.getText());
+            usuarioBanco.setEmail(txtEmail.getText());
+            usuarioBanco.setSenha(txtSenha.getText());
+            usuarioBanco.setCpf(txtCpf.getText());
+            usuarioBanco.setRole("ADMIN"); // adiciona role automático
 
-            conn.setDoOutput(true);
-
-            conn.setRequestProperty("Content-Type", "application/json");
-
-            String json = String.format("{\"nome\" : \"%s\",\"email\" : \"%s\",\"senha\" : \"%s\",\"cpf\" : \"%s\" } ", txtNome.getText(), txtEmail.getText(), txtSenha.getText(), txtCpf.getText());
-
-            try (OutputStream os = conn.getOutputStream()) {
-                os.write(json.getBytes());
-            } catch (Exception e) {
-                throw e;
-            }
-
-            conn.getResponseMessage();
+            usuarioDAO.salvar(usuarioBanco);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Dados digitados!");
-
+            alert.setTitle("Sucesso");
+            alert.setHeaderText(null);
+            alert.setContentText("Administrador cadastrado com sucesso!");
             alert.showAndWait();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Falha ao cadastrar o administrador");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
-
     }
+
 }
