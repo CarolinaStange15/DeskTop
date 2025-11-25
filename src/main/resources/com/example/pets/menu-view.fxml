@@ -3,10 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pets.controller.MenuController">
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pets.controller.MenuController">
    <children>
-      <Button layoutX="40.0" layoutY="212.0" mnemonicParsing="false" onAction="#sair" prefHeight="25.0" prefWidth="65.0" text="Sair" />
-      <Button layoutX="87.0" layoutY="71.0" mnemonicParsing="false" onAction="#abrirMenuTesteApiBanco" text="Teste de API e banco" />
-      <Button layoutX="66.0" layoutY="119.0" mnemonicParsing="false" text="Configuração Administrador" onAction="#abrirConfiguracaoAdmin" />
+      <Button layoutX="118.0" layoutY="125.0" mnemonicParsing="false" onAction="#sair" prefHeight="25.0" prefWidth="65.0" text="Sair" />
+      <Button layoutX="67.0" layoutY="86.0" mnemonicParsing="false" onAction="#abrirConfiguracaoAdmin" text="Configuração Administrador" />
    </children>
 </AnchorPane>
