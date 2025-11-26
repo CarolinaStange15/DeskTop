@@ -2,6 +2,8 @@ package com.example.pets.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Table(name = "usuarios")
 @Entity
 public class Usuario {
@@ -11,6 +13,26 @@ public class Usuario {
 
     private String nome;
     private String email;
+
+    public LocalDateTime getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(LocalDateTime data_cadastro) {
+        this.data_cadastro = data_cadastro;
+    }
+
+    private LocalDateTime data_cadastro;
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    private String telefone;
 
     public long getId() {
         return id;

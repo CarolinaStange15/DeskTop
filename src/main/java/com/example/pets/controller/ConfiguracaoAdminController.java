@@ -21,6 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.time.LocalDateTime;
 
 public class ConfiguracaoAdminController {
 
@@ -33,6 +34,9 @@ public class ConfiguracaoAdminController {
     private TextField txtSenha;
     @FXML
     private TextField txtCpf;
+    @FXML
+    private TextField txtTelefone;
+
 
 
     public void cadastrarAdmin(ActionEvent event) {
@@ -45,6 +49,9 @@ public class ConfiguracaoAdminController {
             usuarioBanco.setEmail(txtEmail.getText());
             usuarioBanco.setSenha(txtSenha.getText());
             usuarioBanco.setCpf(txtCpf.getText());
+            usuarioBanco.setTelefone(txtTelefone.getText());
+            usuarioBanco.setData_cadastro(LocalDateTime.now());
+
             usuarioBanco.setRole("ADMIN"); // adiciona role automático
 
             usuarioDAO.salvar(usuarioBanco);
